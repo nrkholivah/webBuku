@@ -1,0 +1,75 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f4f4;
+    padding: 30px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.tabel-buku {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.tabel-buku th,
+.tabel-buku td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.tabel-buku thead {
+    background-color: #007bff;
+    color: white;
+}
+
+.tabel-buku tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.tabel-buku img.sampul {
+    width: 60px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.tombol-detail {
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 13px;
+    transition: background-color 0.3s ease;
+}
+
+.tombol-detail:hover {
+    background-color: #218838;
+}
+.gambar{
+
+    width: 60px;
+    height: auto;
+    border-radius: 4px;
+}
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f0f0f0;
+    }
