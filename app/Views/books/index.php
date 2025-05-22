@@ -1,9 +1,17 @@
 <?= $this->extend('layout/template'); ?>
 
-
+<?= $this->section('style'); ?>
+<link rel="stylesheet" href="<?= base_url('css/index') ?>">
+<?= $this->endSection(); ?>
 
 <?= $this->section('content'); ?>
 <div class="container">
+    <?php if (session()->getFlashdata('pesan')): ?>
+        <div class="alert alert-success" role="alert">
+            <?= session()->getFlashdata('pesan'); ?>
+        </div>
+    <?php endif ?>
+    <a href="/tambah" class="btn btn-primary mt-3">Tambah Data Buku</a>
     <h2 class="my-4 text-center">Daftar Buku</h2>
 
     <div class="table-responsive">

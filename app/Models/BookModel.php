@@ -7,8 +7,9 @@ use CodeIgniter\Model;
 class BookModel extends Model
 {
     protected $table = 'buku';
-
-    protected $allowedFields = ['judul', 'slug', 'penulis', 'penerbit'];
+    protected $primaryKey = 'id';
+    protected $useTimestamps = true;
+    protected $allowedFields = ['judul', 'slug', 'penulis', 'penerbit', 'sampul'];
 
     public function getBook($slug = false)
     {

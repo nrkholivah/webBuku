@@ -1,22 +1,41 @@
 <?= $this->extend('layout/template'); ?>
 
+<?= $this->section('style'); ?>
+<link rel="stylesheet" href="<?= base_url('css/detail') ?>">
+<?= $this->endSection(); ?>
+
 <?= $this->section('content'); ?>
 <div class="container">
-    <h2><?= esc($book['judul']) ?></h2>
-    <img src="/img/<?= esc($book['sampul']) ?>" width="120" alt="Sampul buku <?= esc($book['judul']) ?>" class="mb-3">
-    <p><strong>Penulis:</strong> <?= esc($book['penulis']) ?></p>
-    <p><strong>Penerbit:</strong> <?= esc($book['penerbit']) ?></p>
-
-    <a href="/books/edit/<?= esc($book['slug']) ?>" class="btn btn-warning">Ubah</a>
-
-    <form action="/books/<?= esc($book['id']) ?>" method="post" class="d-inline" onsubmit="return confirm('Yakin mau hapus buku ini? 😱');">
-        <?= csrf_field(); ?>
-        <input type="hidden" name="_method" value="DELETE">
-        <button type="submit" class="btn btn-danger">Hapus</button>
-    </form>
-
-    <p class="mt-3">
-        <a href="/" class="btn btn-link">⬅ Kembali ke daftar</a>
-    </p>
+    <div class="row">
+        <div class="col">
+            <h2 class="mt-2">Detail Buku</h2>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="/img/<?= $book['sampul']; ?>" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $book['judul']; ?></h5>
+                            <p class="card-text"><b>Penulis :</b> <?= $book['penulis']; ?></p>
+                            <p class="card-text"><small class="text-body-secondary"><b>Penerbit
+                                        :</b><?= $book['penerbit']; ?></small></p>
+                            <a href="/books/edit<?= $book['slug']; ?>" class="btn btn-warning">Ubah</a>
+                            <!-- <a href="#" class="btn btn-danger">Hapus</a> -->
+                            <form action="/books/<?= $book['id']; ?>" method="post" class="d-inline">
+                                <?= csrf_field(); ?>
+                                <input type="hidden" name="_method" value="delete">
+                                <button type="submit" class="btn btn-danger" onclick="return confirm ('apakah anda yakin ingin menghapus data ini?')">
+                                    Hapus
+                                </button>
+                            </form>
+                            <br><br>
+                            <a href="/" class="btn btn-secondary">Kembali ke Daftar Buku</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <?= $this->endSection(); ?>
