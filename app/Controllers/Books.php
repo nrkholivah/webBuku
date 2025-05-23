@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Models\BookModel;
 
+helper('url');
+
 class Books extends BaseController
 {
     protected $bookModel;
@@ -57,18 +59,36 @@ class Books extends BaseController
                     'required' => '{field} buku harus diisi',
                     'is_unique' => '{field} buku sudah dimasukkan',
                 ]
+            ],
+            'sampul' => [
+                'rules' => 'max_size[sampul,1024]|is_image[sampul]|mime_in[sampul,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'max_size' => 'Ukuran gambar terlalu besar',
+                    'is_image' => 'File yang dipilih bukan gambar',
+                    'mime_in' => 'Format gambar tidak didukung',
+                ]
             ]
         ])) {
             $validation = \config\Services::validation();
             return redirect()->to(base_url() . '/books/tambah')->withInput()->with('validation', $validation);
         }
+
+        // handle file upload
+        $fileSampul = $this->request->getFile('sampul');
+        if ($fileSampul->getError() == 4) {
+            $namaFile = 'default.jpg'; // file default kalau user nggak upload apa-apa
+        } else {
+            $namaFile = $fileSampul->getRandomName();
+            $fileSampul->move('img/sampul', $namaFile);
+        }
+
         $slug = url_title($this->request->getVar('judul'), '-', true);
         $this->bookModel->save([
-            'judul' => $this->request->getVAR('judul'),
+            'judul' => $this->request->getVar('judul'),
             'slug' => $slug,
-            'penulis' => $this->request->getVAR('penulis'),
-            'penerbit' => $this->request->getVAR('penerbit'),
-            'sampul' => $this->request->getVAR('sampul'),
+            'penulis' => $this->request->getVar('penulis'),
+            'penerbit' => $this->request->getVar('penerbit'),
+            'sampul' => $namaFile,
         ]);
         session()->setFlashdata('pesan', 'Data Berhasil ditambahkan');
         return redirect()->to('/books');
@@ -110,14 +130,20 @@ class Books extends BaseController
             return redirect()->to('/books/edit/' . $this->request->getVar('slug'))->withInput()->with('validation', $validation);
         }
         $slug = url_title($this->request->getVar('judul'), '-', true);
-        $this->bookModel->save([
-            'id' => $id,
-            'judul' => $this->request->getVar('judul'),
-            'slug' => $slug,
-            'penulis' => $this->request->getVar('penulis'),
-            'penerbit' => $this->request->getVar('penerbit'),
-            'sampul' => $this->request->getVar('sampul'),
-        ]);
+        // ambil file
+        $fileSampul = $this->request->getFile('sampul');
+        if ($fileSampul->getError() == 4) {
+            $namaFile = $this->request->getVar('sampulLama');
+        } else {
+            $namaFile = $fileSampul->getRandomName();
+            $fileSampul->move('img/sampul', $namaFile);
+            // hapus file lama
+            if ($this->request->getVar('sampulLama') != 'default.jpg') {
+                unlink('img/sampul/' . $this->request->getVar('sampulLama'));
+            }
+        }
+
+
         session()->setFlashdata('pesan', 'Data berhasil diubah');
         return redirect()->to('/books');
     }

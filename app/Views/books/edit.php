@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-8">
             <h2 class="my-3">Form Ubah Data Buku</h2>
-            <form action="/books/update/<?= $book['id']; ?>" method="post">
+            <form action="/books/update/<?= $book['id']; ?>" method="post" enctype="multipart/form-data">
                 <?= csrf_field(); ?>
                 <input type="hidden" name="slug" value="<?= $book['slug']; ?>">
 
@@ -41,7 +41,8 @@
                 <div class="row mb-3">
                     <label for="sampul" class="col-sm-2 col-form-label">Sampul</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="sampul" name="sampul" value="<?= old('sampul', $book['sampul']); ?>">
+                        <input type="file" name="sampul" id="sampul">
+                        <input type="hidden" name="sampul" value="<?= $book['sampul']; ?>">
                     </div>
                 </div>
 

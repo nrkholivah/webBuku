@@ -59,17 +59,17 @@ h2 {
     border-radius: 4px;
 }
 
-    table {
+.table {
         border-collapse: collapse;
         width: 100%;
     }
 
-    th, td {
+.th, td {
         border: 1px solid #ccc;
         padding: 8px;
         text-align: left;
     }
 
-    th {
+.th {
         background-color: #f0f0f0;
     }
