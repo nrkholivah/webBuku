@@ -147,4 +147,21 @@ class Books extends BaseController
         session()->setFlashdata('pesan', 'Data berhasil diubah');
         return redirect()->to('/books');
     }
+
+    public function beranda()
+    {
+        $data = ['title' => 'Beranda'];
+        return view('books/beranda', $data);
+    }
+
+    public function tentang()
+    {
+        $data = ['title' => 'Tentang Kami'];
+        return view('books/tentang', $data);
+    }
+    public function hubungi()
+    {
+        $data = ['title' => 'Hubungi Kami'];
+        return view('books/hubungi', $data);
+    }
 }

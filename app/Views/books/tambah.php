@@ -1,7 +1,7 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('style'); ?>
-<link rel="stylesheet" href="<?= base_url('css/tambah') ?>">
+<link rel="stylesheet" href="<?= base_url('css/tambah.css') ?>">
 <?= $this->endSection(); ?>
 
 <?= $this->section('content'); ?>

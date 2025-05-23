@@ -6,6 +6,10 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
+$routes->get('/beranda', 'Books::beranda');           // Halaman Beranda
+$routes->get('/tentang', 'Books::tentang');     // Halaman Tentang
+$routes->get('/hubungi', 'Books::hubungi');
+
 $routes->get('/', 'Books::index');
 $routes->get('/books', 'Books::index');
 
