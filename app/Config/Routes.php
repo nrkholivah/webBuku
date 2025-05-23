@@ -5,9 +5,17 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+
 $routes->get('/', 'Books::index');
-//$routes->get('/books', 'Books::index');
-$routes->get('/books/(:segment)', 'Books::detail/$1');
-$routes->get('/tambah', 'Books::tambah');
-$routes->delete('books/(:num)', 'Books::delete/$1');
-$routes->get('/books/edit/(:segment)', 'Books::edit/$1');
+$routes->get('/books', 'Books::index');
+
+$routes->get('/books/tambah', 'Books::tambah');         // Form tambah
+$routes->post('/books', 'Books::save');                 // Proses tambah
+
+$routes->get('/books/edit/(:segment)', 'Books::edit/$1');    // Form edit
+$routes->post('/books/update/(:num)', 'Books::update/$1');  // Proses update
+
+$routes->delete('/books/(:num)', 'Books::delete/$1');       // Hapus
+$routes->post('/books/(:num)', 'Books::delete/$1');
+
+$routes->get('/books/(:segment)', 'Books::detail/$1');      // Detail

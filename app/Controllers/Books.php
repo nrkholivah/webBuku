@@ -43,7 +43,7 @@ class Books extends BaseController
     {
         $data = [
             'title' => 'Form Tambah Buku',
-            'validation' => \config\Services::validation(),
+            'validation' => \Config\Services::validation(),
         ];
         return view('books/tambah', $data);
     }
@@ -52,7 +52,7 @@ class Books extends BaseController
     {
         if (!$this->validate([
             'judul' => [
-                'rules' => 'required|is_unique[books.judul]',
+                'rules' => 'required|is_unique[buku.judul]',
                 'errors' => [
                     'required' => '{field} buku harus diisi',
                     'is_unique' => '{field} buku sudah dimasukkan',
@@ -101,15 +101,15 @@ class Books extends BaseController
             'judul' => [
                 'rules' => $rule_judul,
                 'errors' => [
-                    'required' => '{field}buku harus diisi',
-                    'is_unique' => '{field}buku sudah dimasukkan'
+                    'required' => '{field} buku harus diisi',
+                    'is_unique' => '{field} buku sudah dimasukkan'
                 ]
             ]
         ])) {
             $validation = \config\Services::validation();
-            return redirect()->to('/books/edit' . $this->request->getVar('slug'))->withInput()->with('validation', $validation);
+            return redirect()->to('/books/edit/' . $this->request->getVar('slug'))->withInput()->with('validation', $validation);
         }
-        $slug = url_title($this->request->getVar('judul'), '', true);
+        $slug = url_title($this->request->getVar('judul'), '-', true);
         $this->bookModel->save([
             'id' => $id,
             'judul' => $this->request->getVar('judul'),

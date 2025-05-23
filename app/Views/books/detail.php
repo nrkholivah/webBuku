@@ -20,7 +20,7 @@
                             <p class="card-text"><b>Penulis :</b> <?= $book['penulis']; ?></p>
                             <p class="card-text"><small class="text-body-secondary"><b>Penerbit
                                         :</b><?= $book['penerbit']; ?></small></p>
-                            <a href="/books/edit<?= $book['slug']; ?>" class="btn btn-warning">Ubah</a>
+                            <a href="/books/edit/<?= $book['slug']; ?>" class="btn btn-warning">Ubah</a>
                             <!-- <a href="#" class="btn btn-danger">Hapus</a> -->
                             <form action="/books/<?= $book['id']; ?>" method="post" class="d-inline">
                                 <?= csrf_field(); ?>

@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-8">
             <h2 class="my-3">Form Ubah Data Buku</h2>
-            <form action="/books/edit/<?= $book['id']; ?>" method="post">
+            <form action="/books/update/<?= $book['id']; ?>" method="post">
                 <?= csrf_field(); ?>
                 <input type="hidden" name="slug" value="<?= $book['slug']; ?>">
 
