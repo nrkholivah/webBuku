@@ -42,7 +42,8 @@
                     <label for="sampul" class="col-sm-2 col-form-label">Sampul</label>
                     <div class="col-sm-10">
                         <input type="file" name="sampul" id="sampul">
-                        <input type="hidden" name="sampul" value="<?= $book['sampul']; ?>">
+                        <input type="hidden" name="sampulLama" value="<?= $book['sampul']; ?>">
+
                     </div>
                 </div>
 

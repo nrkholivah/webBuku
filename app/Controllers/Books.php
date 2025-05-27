@@ -143,6 +143,13 @@ class Books extends BaseController
             }
         }
 
+        $this->bookModel->update($id, [
+            'judul' => $this->request->getVar('judul'),
+            'slug' => $slug,
+            'penulis' => $this->request->getVar('penulis'),
+            'penerbit' => $this->request->getVar('penerbit'),
+            'sampul' => $namaFile,
+        ]);
 
         session()->setFlashdata('pesan', 'Data berhasil diubah');
         return redirect()->to('/books');
