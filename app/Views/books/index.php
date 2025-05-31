@@ -31,7 +31,8 @@
                 <?php foreach ($books as $b) : ?>
                     <tr>
                         <th scope="row"><?= $i++; ?></th>
-                        <td><img src="<?= base_url('/img/sampul/' . $b['sampul']); ?>" alt="Sampul Buku" class="gambar-sampul" width="60"></td>
+                        <td><img src="<?= base_url('img/sampul/' . $b['sampul']) ?>" class="gambar-sampul" width="60">
+                        </td>
                         <td><?= $b['judul']; ?></td>
                         <td><?= $b['penulis'] ?></td>
                         <td><?= $b['penerbit'] ?></td>
