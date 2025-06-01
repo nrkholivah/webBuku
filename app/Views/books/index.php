@@ -1,11 +1,20 @@
 <?= $this->extend('layout/template'); ?>
 
-
+<?= $this->section('style'); ?>
+<link rel="stylesheet" href="<?= base_url('css/index') ?>">
+<?= $this->endSection(); ?>
 
 <?= $this->section('content'); ?>
 <div class="container">
-    <h2 class="my-4 text-center">Daftar Buku</h2>
+    <a href="/books/tambah" class="btn btn-primary mt-3">Tambah Data Buku</a>
+    <?php if (session()->getFlashdata('pesan')) : ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <?= session()->getFlashdata('pesan'); ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
 
+    <h2 class="my-4 text-center">Daftar Buku</h2>
     <div class="table-responsive">
         <table class="table table-striped table-hover align-middle">
             <thead class="table-dark">
