@@ -1,6 +1,7 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('style'); ?>
+
 <link rel="stylesheet" href="<?= base_url('css/index') ?>">
 <?= $this->endSection(); ?>
 

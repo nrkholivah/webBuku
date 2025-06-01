@@ -1,4 +1,5 @@
 <?= $this->extend('layout/template'); ?>
+
 <?= $this->section('style'); ?>
 <link rel="stylesheet" href="<?= base_url('css/detail') ?>">
 <?= $this->endSection(); ?>
@@ -24,6 +25,7 @@
 
                     <br><br>
                     <a href="/books" class="btn btn-secondary">Kembali ke Daftar Buku</a>
+
                 </div>
             </div>
         </div>

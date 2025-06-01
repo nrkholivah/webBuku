@@ -6,7 +6,6 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-
 $routes->get('/beranda', 'Books::beranda');
 $routes->get('/tentang', 'Books::tentang');
 $routes->get('/hubungi', 'Books::hubungi');

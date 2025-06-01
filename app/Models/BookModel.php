@@ -11,6 +11,7 @@ class BookModel extends Model
     protected $useTimestamps = true;
     protected $allowedFields = ['judul', 'slug', 'penulis', 'penerbit', 'sampul'];
 
+
     public function getBook($slug = false)
     {
         if ($slug == false) {
