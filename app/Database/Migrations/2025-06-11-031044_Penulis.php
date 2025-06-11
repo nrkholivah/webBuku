@@ -22,17 +22,7 @@ class Penulis extends Migration
             'address' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
-                'null' => true, 
-            ],
-            'Gender' => [
-                'type' => 'ENUM',
-                'constraint' => ['Laki-laki', 'Perempuan'],
-                'default' => 'Laki-laki',
-            ],
-            'email' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true, 
+                'null' => true,
             ],
             'created_at' => [
                 'type' => 'DATETIME',

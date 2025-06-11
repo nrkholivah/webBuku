@@ -28,7 +28,7 @@ class PenulisSeeder extends Seeder
                 'created_at' => Time::createFromTimestamp($faker->unixTime()),
                 'updated_at' => Time::now()
             ];
-            $this->db->table('penulis')->insert($data);
+            $this->db->table('penulis')->insertBatch($data);
         }
 
         //$this->db->query('INSERT INTO penulis (name, address, created_at, updated_at) VALUES (:name:, :address:, :created_at:, :updated_at:)', $data);
