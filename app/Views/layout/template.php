@@ -17,6 +17,7 @@
             <a class="nav-link" href="/beranda">Beranda</a>
             <a class="nav-link" href="/tentang">Tentang</a>
             <a class="nav-link" href="/books">Daftar Buku</a>
+            <a class="nav-link" href="/penulis/">Daftar Penulis</a>
             <a class="nav-link" href="/hubungi">Hubungi Kami</a>
         </nav>
     </header>
